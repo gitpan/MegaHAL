@@ -1,0 +1,34 @@
+This is the Perl 5 MegaHAL distribution.  It requires a previous installation
+of MegaHAL.  It was created using MegaHAL version 8 release 6, but may work
+with earlier versions of MegaHAL.  The latest version of MegaHAL can be
+obtained from:
+
+    http://sourceforge.net/projects/megahal/
+
+This package required MegaHAL to be compiled as a shared library, which is not
+done in the default MegaHAL installation.  MegaHAL can be compiled as a shared
+library by running the following command:
+
+    gcc -shared -Wl,-soname,libmegahal.so -o libmegahal.so megahal.c
+
+As root, you can then copy the shared libary that was produced in the previous
+step into a library directory as follows:
+
+    cp libmegahal.so /usr/local/lib
+    chmod 755 /usr/local/lib/libmegahal.so
+
+Note that you may have to run ldconfig as root after copying the shared library
+into /usr/local/lib.
+
+After installing the shared library, the Perl package can be compiled and
+installed with the following commands:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+Please report any bugs or send any suggestions in the Perl MegaHAL package to
+Cory Spencer <cspencer@intechange.ubc.ca>.
+
+MegaHAL was originally written by and is copyright Jason Hutchens.
